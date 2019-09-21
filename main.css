@@ -1,3 +1,38 @@
 body {
-    padding: 2vw;
+    background: aliceblue;
+    margin: 0;
+    height: 100%;
+}
+#vueCards {
+    min-height: 1080px;
+}
+header {
+    background: white;
+    padding: 1vw;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+h1 {
+    margin: 0 0 20px;
+}
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1vw;
+    padding: 1vw;
+}
+.card-display {
+    padding: 1vw;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid grey;
+}
+.card-date {
+    font-size: 12px;
+}
+.card-name {
+    font-size: 16px;
+}
+.card-text {
+    font-size: 18px;
+    line-height: 1.3;
 }

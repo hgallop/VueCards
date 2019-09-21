@@ -13,10 +13,10 @@
             <button>Remove Card</button>
             <button>Cancel</button>
             <div class="card-form">
-                <input type="text">
-                <input type="datetime-local">
-                <input type="text">
-                <button>Save Card</button>
+                <input v-model="newCard.name" type="text" placeholder="Name">
+                <input v-model="newCard.date" type="text" placeholder="Date">
+                <input v-model="newCard.text" type="text" placeholder="Message">
+                <button :disabled="newCard.length === 0" @click="saveItem">Save Card</button>
             </div>
         </header>
         <main class="card-container">
@@ -41,15 +41,31 @@
             el: '#vueCards',
             data: {
                 header: 'Vue Cards',
+                newCard: {
+                    name: '',
+                    date: '',
+                    text: ''
+                },
                 cards: [
                     {
                         name: 'Tom',
                         date: '09/21/2019',
                         text: 'Pieces of Eight heave down deadlights me line keelhaul. Come about red ensign pink maroon prow loaded to the gunwalls. Jolly Roger clipper to go on account smartly yo-ho-ho rigging. Lugsail yo-ho-ho loot spirits come about brigantine. Dance the hempen jig yard topmast swing the lead mizzenmast transom. Quarter Pirate Round mutiny Blimey swab no prey, no pay. Topmast clipper shrouds cutlass list warp.'
-                    }
-
+                    },
                 ]
-            }
+            },
+            methods: {
+                saveItem: function() {
+                    this.cards.push(
+                        this.newCard
+                    );
+                    this.newCard = {
+                        name: '',
+                        date: '',
+                        text: ''
+                    }
+                }
+                }
         });
     </script>
 </body>
