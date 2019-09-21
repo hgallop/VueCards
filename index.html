@@ -2,11 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Vue Cards</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Vue Cards</h1>
+        <button>Add Card</button>
+        <button>Remove Card</button>
+        <button>Cancel</button>
+        <div class="card-form">
+            <input type="text">
+            <input type="datetime-local">
+            <input type="text">
+            <button>Save Card</button>
+        </div>
+    </header>
+    <main class="card-container">
+        <div class="card-display">
+            <p class="card-date"></p>
+            <p class="card-name"></p>
+            <p class="card-text"></p>
+        </div>
+        <div class="card-none">
+            <h2>There are no Vue Cards to display</h2>
+            <img src="" alt="">
+        </div>
+    </main>
     <script src="https://unpkg.com/vue"></script>
 </body>
 </html>
