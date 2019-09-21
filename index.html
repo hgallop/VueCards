@@ -9,13 +9,13 @@
     <div id="vueCards">
         <header>
             <h1>{{ header }}</h1>
-            <button>Add Card</button>
+            <button v-if="status === 'default'" @click="changeStatus('edit')">Add Card</button>
+            <button v-else @click="changeStatus('default')">Cancel</button>
             <button>Remove Card</button>
-            <button>Cancel</button>
-            <div class="card-form">
-                <input v-model="newCard.name" type="text" placeholder="Name">
-                <input v-model="newCard.date" type="text" placeholder="Date">
-                <input v-model="newCard.text" type="text" placeholder="Message">
+            <div class="card-form" v-if="status === 'edit'">
+                <input class="card-form-short" v-model="newCard.name" type="text" placeholder="Name">
+                <input class="card-form-short" v-model="newCard.date" type="text" placeholder="Date">
+                <textarea class="card-form-long" v-model="newCard.text" name="Message" cols="40" rows="5" placeholder="Message"></textarea>
                 <button :disabled="newCard.length === 0" @click="saveItem">Save Card</button>
             </div>
         </header>
@@ -41,6 +41,7 @@
             el: '#vueCards',
             data: {
                 header: 'Vue Cards',
+                status: 'default',
                 newCard: {
                     name: '',
                     date: '',
@@ -64,8 +65,12 @@
                         date: '',
                         text: ''
                     }
+                },
+                changeStatus: function(newStatus) {
+                    this.status = newStatus;
+                    console.log('Changed!');
                 }
-                }
+            },   
         });
     </script>
 </body>
