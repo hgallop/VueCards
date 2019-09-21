@@ -6,29 +6,43 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <header>
-        <h1>Vue Cards</h1>
-        <button>Add Card</button>
-        <button>Remove Card</button>
-        <button>Cancel</button>
-        <div class="card-form">
-            <input type="text">
-            <input type="datetime-local">
-            <input type="text">
-            <button>Save Card</button>
-        </div>
-    </header>
-    <main class="card-container">
-        <div class="card-display">
-            <p class="card-date"></p>
-            <p class="card-name"></p>
-            <p class="card-text"></p>
-        </div>
-        <div class="card-none">
-            <h2>There are no Vue Cards to display</h2>
-            <img src="" alt="">
-        </div>
-    </main>
+    <div id="vueCards">
+        <header>
+            <h1>{{ header }}</h1>
+            <button>Add Card</button>
+            <button>Remove Card</button>
+            <button>Cancel</button>
+            <div class="card-form">
+                <input type="text">
+                <input type="datetime-local">
+                <input type="text">
+                <button>Save Card</button>
+            </div>
+        </header>
+        <main class="card-container">
+            <div class="card-display">
+                <p class="card-date"></p>
+                <p class="card-name"></p>
+                <p class="card-text"></p>
+            </div>
+            <div class="card-none">
+                <h2>There are no Vue Cards to display</h2>
+                <img src="" alt="">
+            </div>
+        </main>
+        <footer>
+            <h2>Coded by: hgallop</h2>
+            <p>Project based on Vue.js Fundamentals course on <a href="https://vueschool.io" target="_blank">VueSchool.io</a></p>
+        </footer>
+    </div>
     <script src="https://unpkg.com/vue"></script>
+    <script>
+        var vueCards = new Vue({
+            el: '#vueCards',
+            data: {
+                header: 'Vue Cards'
+            }
+        });
+    </script>
 </body>
 </html>
