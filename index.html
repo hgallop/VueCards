@@ -20,14 +20,14 @@
             </div>
         </header>
         <main class="card-container">
-            <div class="card-display">
-                <p class="card-date"></p>
-                <p class="card-name"></p>
-                <p class="card-text"></p>
+            <div class="card-display" v-for="card in cards">
+                <p class="card-date">{{ card.date }}</p>
+                <p class="card-name">{{ card.name }}</p>
+                <p class="card-text">{{ card.text }}</p>
             </div>
-            <div class="card-none">
+            <div class="card-none" v-if="cards.length === 0">
                 <h2>There are no Vue Cards to display</h2>
-                <img src="" alt="">
+                <img src="https://res.cloudinary.com/hgallopcloud/image/upload/v1558280237/starburst-rev_occdct.png" alt="Starburst">
             </div>
         </main>
         <footer>
@@ -40,7 +40,15 @@
         var vueCards = new Vue({
             el: '#vueCards',
             data: {
-                header: 'Vue Cards'
+                header: 'Vue Cards',
+                cards: [
+                    {
+                        name: 'Tom',
+                        date: '09/21/2019',
+                        text: 'Pieces of Eight heave down deadlights me line keelhaul. Come about red ensign pink maroon prow loaded to the gunwalls. Jolly Roger clipper to go on account smartly yo-ho-ho rigging. Lugsail yo-ho-ho loot spirits come about brigantine. Dance the hempen jig yard topmast swing the lead mizzenmast transom. Quarter Pirate Round mutiny Blimey swab no prey, no pay. Topmast clipper shrouds cutlass list warp.'
+                    }
+
+                ]
             }
         });
     </script>
